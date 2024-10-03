@@ -1,8 +1,21 @@
 import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
-// Custom APIs for renderer
-const api = {}
+import generateId from './generateId'
+import database from './database'
+
+// api to allow frontend to call backend functions (that use nodejs)
+const api = {
+  generateId: () => {
+    return generateId()
+  },
+  addContact: (contactData) => {
+    return database.addContact(contactData)
+  },
+  getContact: (contactId) => {
+    return database.getContact(contactId)
+  }
+}
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
