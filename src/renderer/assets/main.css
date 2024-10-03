@@ -19,6 +19,7 @@ body {
 	background-color: var(--gray-50);
 }
 
+/* HEADER CSS */
 header {
 	padding: 10px 20px;
 }
@@ -31,6 +32,12 @@ header {
 	margin: 0px;
 }
 
+/* ADD NEW CONTACT FORM CSS */
+.newcontact-details {
+	display: block;
+}
+
+/* MAIN COTENT CSS */
 main {
 	margin: 10px 20px;
 }
@@ -51,6 +58,7 @@ main {
 	margin: 0px;
 }
 
+/* FOOTER CSS */
 footer {
 	margin: 30px 20px;
 }

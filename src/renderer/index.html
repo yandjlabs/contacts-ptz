@@ -15,6 +15,40 @@
 	</header>
 
 	<main>
+		<form>
+			<h3>Add a new contact</h3>
+			<input class="newcontact-name" type="text" placeholder="Jacob Jenkins" required>
+			<select class="newcontact-timezone" name="timezone" required>
+				<option value="" selected disabled>(Hours from UTC)</option>
+				<option value="+12">+12 hrs</option>
+				<option value="+11">+11 hrs</option>
+				<option value="+10">+10 hrs</option>
+				<option value="+9">+9 hrs</option>
+				<option value="+8">+8 hrs</option>
+				<option value="+7">+7 hrs</option>
+				<option value="+6">+6 hrs</option>
+				<option value="+5">+5 hrs</option>
+				<option value="+4">+4 hrs</option>
+				<option value="+3">+3 hrs</option>
+				<option value="+2">+2 hrs</option>
+				<option value="+1">+1 hr</option>
+				<option value="+0">+0 hrs (UTC)</option>
+				<option value="-1">-1 hr</option>
+				<option value="-2">-2 hrs</option>
+				<option value="-3">-3 hrs</option>
+				<option value="-4">-4 hrs</option>
+				<option value="-5">-5 hrs</option>
+				<option value="-6">-6 hrs</option>
+				<option value="-7">-7 hrs</option>
+				<option value="-8">-8 hrs</option>
+				<option value="-9">-9 hrs</option>
+				<option value="-10">-10 hrs</option>
+				<option value="-11">-11 hrs</option>
+				<option value="-12">-12 hrs</option>
+			</select>
+			<textarea class="newcontact-details" rows="4" cols="30" placeholder="- Detail 1 (can continue onto the next line)&#10;- Detail 2&#10;- Detail 3"></textarea>
+			<button type="submit">+ Add</button>
+		</form>
 		<div class="contact">
 			<h3 class="contact-name">Jacob Jenkins</h3>
 			<span class="contact-timezone">2:52AM (+12 hrs)</span>
