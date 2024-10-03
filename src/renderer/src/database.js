@@ -1,4 +1,4 @@
-import generateId from "./generateid.js"
+import generateId from "./generateId.js"
 
 function addContact(contactData) {
     const contactId = generateId()
