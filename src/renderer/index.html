@@ -1,42 +1,49 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Electron</title>
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
-    />
+<html lang="en">
 
-    <link href="./assets/main.css" type="text/css" rel="stylesheet" />
-  </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/main.css">
+	<title>Contacts PTZ</title>
+</head>
 
-  <body>
-    <div id="app">
-      <img alt="logo" class="logo" src="./assets/electron.svg" />
-      <div class="creator">Powered by electron-vite</div>
-      <div class="text">
-        Build an Electron app with
-        <span class="js">JavaScript</span>
-      </div>
-      <p class="tip">Please try pressing <code>F12</code> to open the devTool</p>
-      <div class="actions">
-        <div class="action">
-          <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">Documentation</a>
-        </div>
-        <div class="action">
-          <a id="ipcHandler" target="_blank" rel="noreferrer">Send IPC</a>
-        </div>
-      </div>
+<body>
+	<header>
+		<h1 class="logo">Contacts PTZ</h1>
+		<p class="tagline">An innovative approach to managing your contacts!</p>
+	</header>
 
-      <ul class="versions">
-        <li class="electron-version"></li>
-        <li class="chrome-version"></li>
-        <li class="node-version"></li>
-      </ul>
-    </div>
+	<main>
+		<div class="contact">
+			<h3 class="contact-name">Jacob Jenkins</h3>
+			<span class="contact-timezone">2:52AM (+12 hrs)</span>
+			<span class="contact-location">Seattle, Washington</span>
+			<p class="contact-details-label">Details</p>
+			<ul class="contact-details-list">
+				<li class="contact-details-list-item">Birthday on 06/09/1969</li>
+				<li class="contact-details-list-item">Cat's name is Romeo</li>
+				<li class="contact-details-list-item">Is very, very fat</li>
+			</ul>
+		</div>
+		<div class="contact">
+			<h3 class="contact-name">Yang-Yi Shen</h3>
+			<span class="contact-timezone">2:52PM (+0 hrs)</span>
+			<span class="contact-location">Hualien, Taiwan</span>
+			<p class="contact-details-label">Details</p>
+			<ul class="contact-details-list">
+				<li class="contact-details-list-item">Plays piano</li>
+				<li class="contact-details-list-item">Black belt in Taekwondo</li>
+				<li class="contact-details-list-item">Really likes balut</li>
+			</ul>
+		</div>
+	</main>
 
-    <script type="module" src="./src/renderer.js"></script>
-  </body>
+	<footer>
+		<p class="copyright">© 2024 Y&J Labs. All rights reserved.</p>
+	</footer>
+
+	<script type="module" src="./src/renderer.js"></script>
+</body>
+
 </html>
