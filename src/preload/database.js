@@ -2,12 +2,12 @@ import generateId from "./generateId.js"
 
 function addContact(contactData) {
     const contactId = generateId()
-    localStorage.setItem(contactId, contactData)
+    localStorage.setItem(contactId, JSON.stringify(contactData))
     return contactId
 }
 
 function getContact(contactId) {
-    const contactData = localStorage.getItem(contactId)
+    const contactData = JSON.parse(localStorage.getItem(contactId))
     return contactData
 }
 
