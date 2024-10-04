@@ -18,3 +18,35 @@ newContactForm.addEventListener('submit', (event) => {
 
     window.api.addContact(contactData)
 })
+
+// load all current contacts on app open
+const contactsList = document.querySelector('.contacts')
+function displayContacts() {
+    const timeFormat = 'en-US' // later, get from user settings data but default to en-US
+    const time = new Date()
+    const currentTime = time.toLocaleString(timeFormat, {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+    })
+
+    Object.entries(localStorage).forEach(([contactId, contactData]) => {
+        const data = JSON.parse(contactData)
+        console.log(data.details)
+        const detailsList = data.details.map(detail => `
+            <li class="contact-details-list-item">${detail}</li>
+        `).join('')
+        contactsList.innerHTML += `
+            <div class="contact">
+                <h3 class="contact-name">${data.name}</h3>
+                <span class="contact-timezone">${currentTime} (${data.timezone} hrs)</span>
+                <span class="contact-location">${data.location}</span>
+                <p class="contact-details-label">Details</p>
+                <ul class="contact-details-list">
+                    ${detailsList}
+                </ul>
+            </div>
+        `
+    })
+}
+window.onload = displayContacts
