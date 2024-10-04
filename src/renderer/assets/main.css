@@ -14,6 +14,10 @@
 	--gray-50: #f9fafb;
 }
 
+.text-secondary {
+	color: var(--gray-500)
+}
+
 body {
 	margin: 0px;
 	background-color: var(--gray-50);
@@ -37,17 +41,22 @@ header {
 	display: block;
 }
 
-/* MAIN COTENT CSS */
+/* MAIN CONTENT CSS */
 main {
 	margin: 10px 20px;
 }
 
+/* CONTACT ITEM CSS */
 .contact-name {
 	margin-bottom: 0px;
 }
 
-.contact-location {
-	color: var(--gray-500)
+.contact-email, .contact-phone {
+	margin: 0px;
+}
+
+.contact-details {
+	margin-top: 5px;
 }
 
 .contact-details-label {
