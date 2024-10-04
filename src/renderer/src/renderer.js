@@ -1,15 +1,20 @@
-const contactData = {
-    name: 'Benjamin Blahaj',
-    timezone: '+6',
-    location: 'Vienna, Austria',
-    details: [
-        'Had both his front teeth knocked out, those are actually his upper canines',
-        'Was held back a grade',
-        'Is very into video games'
-    ]
-}
+const newContactForm = document.querySelector('form')
 
-const contactId = window.api.addContact(contactData)
-const retrievedContact = JSON.stringify(window.api.getContact(contactId))
+newContactForm.addEventListener('submit', (event) => {
+    event.preventDefault()
 
-console.log(`ID: ${contactId}\nDATA: ${retrievedContact}`)
+    const contactName = document.querySelector('.newcontact-name').value
+    const contactTimezone = document.querySelector('.newcontact-timezone').value
+    const contactLocation = document.querySelector('.newcontact-location').value
+    const contactDetails = document.querySelector('.newcontact-details').value.split(/\n- |- /)
+    contactDetails.shift() // remove first element which is just ""
+
+    const contactData = {
+        name: contactName,
+        timezone: contactTimezone,
+        location: contactLocation,
+        details: contactDetails
+    }
+
+    window.api.addContact(contactData)
+})
