@@ -1,24 +1,3 @@
-const newContactForm = document.querySelector('form')
-
-newContactForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-
-    const contactName = document.querySelector('.newcontact-name').value
-    const contactTimezone = document.querySelector('.newcontact-timezone').value
-    const contactLocation = document.querySelector('.newcontact-location').value
-    const contactDetails = document.querySelector('.newcontact-details').value.split(/\n- |- /)
-    contactDetails.shift() // remove first element which is just ""
-
-    const contactData = {
-        name: contactName,
-        timezone: contactTimezone,
-        location: contactLocation,
-        details: contactDetails
-    }
-
-    window.api.addContact(contactData)
-})
-
 // load all current contacts on app open
 const contactsList = document.querySelector('.contacts')
 function displayContacts() {
@@ -32,7 +11,6 @@ function displayContacts() {
 
     Object.entries(localStorage).forEach(([contactId, contactData]) => {
         const data = JSON.parse(contactData)
-        console.log(data.details)
         const detailsList = data.details.map(detail => `
             <li class="contact-details-list-item">${detail}</li>
         `).join('')
@@ -50,3 +28,30 @@ function displayContacts() {
     })
 }
 window.onload = displayContacts
+
+const newContactForm = document.querySelector('form')
+newContactForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const contactName = document.querySelector('.newcontact-name')
+    const contactTimezone = document.querySelector('.newcontact-timezone')
+    const contactLocation = document.querySelector('.newcontact-location')
+    const contactDetails = document.querySelector('.newcontact-details')
+    const contactDetailsArray = contactDetails.value.split(/\n- |- /)
+    contactDetailsArray.shift() // remove first element which is just ""
+
+    const contactData = {
+        name: contactName.value,
+        timezone: contactTimezone.value,
+        location: contactLocation.value,
+        details: contactDetailsArray
+    }
+
+    window.api.addContact(contactData)
+    displayContacts()
+
+    contactName.value = ''
+    contactTimezone.value = ''
+    contactLocation.value = ''
+    contactDetails.value = ''
+})
