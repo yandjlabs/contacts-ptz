@@ -10,7 +10,6 @@ function generateId() {
 function checkId(contactId) {
     const usedIds = Object.keys(localStorage) 
     if (usedIds.includes(contactId)) {
-        console.log('ID conflict detected. Generating a new one...')
         return false 
     }
     return true 
