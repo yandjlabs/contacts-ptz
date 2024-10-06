@@ -79,3 +79,12 @@ newContactForm.addEventListener('submit', (event) => {
     contactEmail.value = ''
     contactPhone.value = ''
 })
+
+// FUNCTION THAT LOADS PAGE
+function loadingAnimation() {
+    const main = document.querySelector('main')
+    const loadingIcon = document.querySelector('.loading-icon')
+
+    main.classList.toggle('hidden')
+    loadingIcon.classList.toggle('hidden')
+}

@@ -71,6 +71,11 @@ main {
 	margin: 0px;
 }
 
+.loading-icon {
+	display: block;
+	margin: 20px auto;
+}
+
 /* FOOTER CSS */
 footer {
 	margin: 30px 20px;
