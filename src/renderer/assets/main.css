@@ -18,6 +18,10 @@
 	color: var(--gray-500)
 }
 
+.hidden {
+	display: none;
+}
+
 body {
 	margin: 0px;
 	background-color: var(--gray-50);
