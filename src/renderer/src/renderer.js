@@ -74,6 +74,7 @@ newContactForm.addEventListener('submit', (event) => {
         const contactId = Date.now().toString()
         localStorage.setItem(contactId, JSON.stringify(contactData))
 
+        displayContacts()
         loadingAnimation()
     }, 500);
 
