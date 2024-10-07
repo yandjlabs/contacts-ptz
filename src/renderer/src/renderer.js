@@ -21,11 +21,11 @@ function displayContacts() {
         contactElement.classList.add('contact');
         contactElement.innerHTML = `
             <h3 class="contact-name">${data.name}</h3>
-            <span class="contact-timezone">${currentTime} (${data.timezone} hrs)</span>
-            <span class="contact-location text-secondary">${data.location}</span>
-            <p class="contact-email">📬 <span class="text-secondary">${data.email || 'N/A'}</span></p>
-            <p class="contact-phone">📞 <span class="text-secondary">${data.phone || 'N/A'}</span></p>
-            <button class="contact-details-btn">Details</button>
+            <span class="contact-timezone ${data.timezone ? '' : 'pale'}">⏰ ${data.timezone? currentTime + ' (' + data.timezone + ' hrs)' : 'N/A'}</span>
+            <span class="contact-location text-secondary ${data.location ? '' : 'pale'}">🗺️ ${data.location || 'N/A'}</span>
+            <p class="contact-email ${data.email ? '' : 'pale'}">📬 <span class="text-secondary">${data.email || 'N/A'}</span></p>
+            <p class="contact-phone ${data.phone ? '' : 'pale'}">📞 <span class="text-secondary">${data.phone || 'N/A'}</span></p>
+            <button class="contact-details-btn" ${data.details.length === 0 ? 'disabled' : ''}>Details</button>
             <div class="hidden contact-details-expand">
                 ${detailsList}
             </div>
