@@ -71,8 +71,6 @@ newContactForm.addEventListener('submit', (event) => {
     const contactId = Date.now().toString()
     localStorage.setItem(contactId, JSON.stringify(contactData))
 
-    displayContacts()
-
     contactName.value = ''
     contactTimezone.value = ''
     contactLocation.value = ''
@@ -83,9 +81,9 @@ newContactForm.addEventListener('submit', (event) => {
 
 // show loading animation to tell user something's happened
 function loadingAnimation() {
-    const main = document.querySelector('main')
+    const contactsList = document.querySelector('.contacts')
     const loadingIcon = document.querySelector('.loading-icon')
 
-    main.classList.toggle('hidden')
+    contactsList.classList.toggle('hidden')
     loadingIcon.classList.toggle('hidden')
 }
