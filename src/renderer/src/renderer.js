@@ -68,8 +68,14 @@ newContactForm.addEventListener('submit', (event) => {
         phone: contactPhone.value
     }
 
-    const contactId = Date.now().toString()
-    localStorage.setItem(contactId, JSON.stringify(contactData))
+    // make this take time so user can tell contact has been added
+    loadingAnimation()
+    setTimeout(() => {
+        const contactId = Date.now().toString()
+        localStorage.setItem(contactId, JSON.stringify(contactData))
+
+        loadingAnimation()
+    }, 500);
 
     contactName.value = ''
     contactTimezone.value = ''
