@@ -1,4 +1,3 @@
-// load all current contacts on app open
 const contactsList = document.querySelector('.contacts')
 
 function displayContacts() {
@@ -43,8 +42,10 @@ function displayContacts() {
     })
 }
 
+// load all current contacts on app open
 window.onload = displayContacts
 
+// add contact to database on form submit & clear values
 const newContactForm = document.querySelector('form')
 newContactForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -80,7 +81,7 @@ newContactForm.addEventListener('submit', (event) => {
     contactPhone.value = ''
 })
 
-// FUNCTION THAT LOADS PAGE
+// show loading animation to tell user something's happened
 function loadingAnimation() {
     const main = document.querySelector('main')
     const loadingIcon = document.querySelector('.loading-icon')
