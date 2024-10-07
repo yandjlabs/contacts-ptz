@@ -40,7 +40,18 @@ header {
 	margin: 0px;
 }
 
-/* ADD NEW CONTACT FORM CSS */
+/* NEW CONTACT FORM CSS */
+.newcontact-field {
+	width: 350px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.newcontact-field input, select, textarea {
+	width: 220px;
+	box-sizing: border-box;
+}
+
 .newcontact-details {
 	display: block;
 }
