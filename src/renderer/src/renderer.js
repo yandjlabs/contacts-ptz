@@ -23,8 +23,8 @@ function displayContacts() {
             <h3 class="contact-name">${data.name}</h3>
             <span class="contact-timezone">${currentTime} (${data.timezone} hrs)</span>
             <span class="contact-location text-secondary">${data.location}</span>
-            <p class="contact-email">Email: <span class="text-secondary">${data.email || 'N/A'}</span></p>
-            <p class="contact-phone">Phone: <span class="text-secondary">${data.phone || 'N/A'}</span></p>
+            <p class="contact-email">📬 <span class="text-secondary">${data.email || 'N/A'}</span></p>
+            <p class="contact-phone">📞 <span class="text-secondary">${data.phone || 'N/A'}</span></p>
             <button class="contact-details-btn">Details</button>
             <div class="hidden contact-details-expand">
                 ${detailsList}
