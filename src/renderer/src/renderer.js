@@ -1,15 +1,9 @@
 const contactsList = document.querySelector('.contacts')
 
 function displayContacts() {
-    const timeFormat = 'en-US' // later, get from user settings data but default to en-US
-    const time = new Date()
-    const currentTime = time.toLocaleString(timeFormat, {
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true // later, get from user setting data whether 12 or 24 but default to 12
-    })
+    const date = new Date()
 
-    contactsList.innerHTML = ''; 
+    contactsList.innerHTML = ''
 
     Object.entries(localStorage).forEach(([contactId, contactData]) => {
         const data = JSON.parse(contactData)
@@ -17,11 +11,25 @@ function displayContacts() {
             <li class="contact-details-list-item">${detail}</li>
         `).join('')
 
+        const time = new Date()
+        const offset = parseInt(data.timezone, 10) - 8
+        console.log(time.getHours(), date.getHours())
+        time.setHours(date.getHours() + offset)
+        console.log(date.getHours() + offset, offset)
+
+        const timeFormat = 'en-US' // later, get from user settings data but default to en-US
+        const hour12 = true // later, get from user setting data whether 12 or 24 but default to 12
+        const contactTime = time.toLocaleString(timeFormat, {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: hour12
+        })
+
         const contactElement = document.createElement('div');
         contactElement.classList.add('contact');
         contactElement.innerHTML = `
             <h3 class="contact-name">${data.name}</h3>
-            <span class="contact-timezone ${data.timezone ? '' : 'pale'}">⏰ ${data.timezone? currentTime + ' (' + data.timezone + ' hrs)' : 'N/A'}</span>
+            <span class="contact-timezone ${data.timezone ? '' : 'pale'}">⏰ ${data.timezone? contactTime + ' (' + data.timezone + ' hrs)' : 'N/A'}</span>
             <span class="contact-location text-secondary ${data.location ? '' : 'pale'}">🗺️ ${data.location || 'N/A'}</span>
             <p class="contact-email ${data.email ? '' : 'pale'}">📬 <span class="text-secondary">${data.email || 'N/A'}</span></p>
             <p class="contact-phone ${data.phone ? '' : 'pale'}">📞 <span class="text-secondary">${data.phone || 'N/A'}</span></p>
