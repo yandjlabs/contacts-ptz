@@ -13,9 +13,7 @@ function displayContacts() {
 
         const time = new Date()
         const offset = parseInt(data.timezone, 10) - 8
-        console.log(time.getHours(), date.getHours())
         time.setHours(date.getHours() + offset)
-        console.log(date.getHours() + offset, offset)
 
         const timeFormat = 'en-US' // later, get from user settings data but default to en-US
         const hour12 = true // later, get from user setting data whether 12 or 24 but default to 12
@@ -79,7 +77,7 @@ newContactForm.addEventListener('submit', (event) => {
     // make this take time so user can tell contact has been added
     loadingAnimation()
     setTimeout(() => {
-        const contactId = Date.now().toString()
+        const contactId = window.api.generateId()
         localStorage.setItem(contactId, JSON.stringify(contactData))
 
         displayContacts()
