@@ -1,6 +1,11 @@
-const contactsList = document.querySelector('.contacts')
+// load all current contacts on app open
+window.onload = displayContacts
 
+const contactsList = document.querySelector('.contacts')
 function displayContacts() {
+    // make sure contacts are properly sorted
+    window.api.sortContacts()
+
     const date = new Date()
 
     contactsList.innerHTML = ''
@@ -47,9 +52,6 @@ function displayContacts() {
         });
     })
 }
-
-// load all current contacts on app open
-window.onload = displayContacts
 
 // add contact to database on form submit & clear values
 const newContactForm = document.querySelector('form')
