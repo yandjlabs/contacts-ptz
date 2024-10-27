@@ -17,7 +17,7 @@ function displayContacts() {
         `).join('')
 
         const time = new Date()
-        const offset = parseInt(data.timezone, 10) - 8
+        const offset = parseInt(data.timezone, 10) + (time.getTimezoneOffset()/60)
         time.setUTCHours(date.getUTCHours() + offset)
 
         const timeFormat = 'en-US' // later, get from user settings data but default to en-US
