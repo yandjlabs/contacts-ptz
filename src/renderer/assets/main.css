@@ -46,14 +46,18 @@ header {
 
 /* NEW CONTACT FORM CSS */
 .newcontact-field {
-	width: 360px;
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 140px 220px 220px;
+	gap: 10px;
 }
 
 .newcontact-field input, select, textarea {
-	width: 220px;
+	grid-column: 2;
 	box-sizing: border-box;
+}
+
+.newcontact-timezone-dst {
+	grid-column: 3 !important;
 }
 
 .newcontact-details {
