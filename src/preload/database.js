@@ -11,6 +11,10 @@ function getContact(contactId) {
     return contactData
 }
 
+function deleteContact(contactId) {
+    localStorage.removeItem(contactId)
+}
+
 function sortContacts() {
     const contactIds = Object.keys(localStorage)
     const sortedContacts = []
@@ -32,4 +36,4 @@ function sortContacts() {
     }
 }
 
-export default { addContact, getContact, sortContacts }
+export default { addContact, getContact, deleteContact, sortContacts }

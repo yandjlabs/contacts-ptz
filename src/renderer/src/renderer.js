@@ -36,7 +36,7 @@ function displayContacts() {
         const contactElement = document.createElement('div')
         contactElement.classList.add('contact')
         contactElement.innerHTML = `
-            <h3 class="contact-name">${data.name}</h3>
+            <h3 class="contact-name">${data.name} <button class="contact-delete-btn">🗑️</button></h3>
             <span class="contact-timezone ${data.timezone ? '' : 'pale'}">⏰ ${data.timezone ? contactTime + ' (' + data.timezone + ' hrs)' : 'N/A'}</span>
             <span class="contact-location text-secondary ${data.location ? '' : 'pale'}">🗺️ ${data.location || 'N/A'}</span>
             <p class="contact-email ${data.email ? '' : 'pale'}">📬 <span class="text-secondary">${data.email || 'N/A'}</span></p>
@@ -55,6 +55,13 @@ function displayContacts() {
         detailsBtn.addEventListener('click', () => {
             detailsDiv.classList.toggle('hidden')
         })
+
+        const deleteBtn = contactElement.querySelector('.contact-delete-btn')
+
+        deleteBtn.addEventListener('click', () => {
+            window.api.deleteContact(data.id)
+            displayContacts()
+        })
     })
 }
 
@@ -72,7 +79,9 @@ newContactForm.addEventListener('submit', (event) => {
     const contactDetailsArray = contactDetails.value.split(/\n- |- /)
     contactDetailsArray.shift()
 
+    const contactId = window.api.generateId()
     const contactData = {
+        id: contactId,
         name: contactName.value,
         timezone: contactTimezone.value,
         location: contactLocation.value,
@@ -84,7 +93,6 @@ newContactForm.addEventListener('submit', (event) => {
     // make this take time so user can tell contact has been added
     loadingAnimation()
     setTimeout(() => {
-        const contactId = window.api.generateId()
         localStorage.setItem(contactId, JSON.stringify(contactData))
 
         displayContacts()
@@ -121,8 +129,6 @@ function updateTime() {
             const [time, period] = timeString.split(" ")
             let [hours, minutes] = time.split(":").map(Number)
 
-            console.log(time, period, hours, minutes)
-
             if (minutes != currentMinutes && item.textContent.split(" ")[1] != 'N/A') {
                 // Convert to 24-hour format for easier manipulation
                 if (period === "PM" && hours !== 12) {
@@ -142,8 +148,6 @@ function updateTime() {
                 let newHours = date.getHours()
                 const newMinutes = date.getMinutes()
                 const newPeriod = newHours >= 12 ? "PM" : "AM"
-
-                console.log(newHours, newMinutes, newPeriod)
 
                 newHours = newHours % 12 || 12 // Convert 0 or 12/24 to 12 in 12-hour format
 

@@ -74,6 +74,16 @@ main {
 	margin-bottom: 0px;
 }
 
+.contact-delete-btn {
+	border: none;
+	background: none;
+	opacity: 0;
+}
+
+.contact-delete-btn:hover {
+	opacity: 1;
+}
+
 .contact-email, .contact-phone {
 	margin: 0px;
 }

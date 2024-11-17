@@ -15,6 +15,9 @@ const api = {
   getContact: (contactId) => {
     return database.getContact(contactId)
   },
+  deleteContact: (contactId) => {
+    return database.deleteContact(contactId)
+  },
   sortContacts: () => {
     return database.sortContacts()
   }
