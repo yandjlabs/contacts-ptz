@@ -3,6 +3,7 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 import generateId from './generateId'
 import database from './database'
+import newTab from './newtab'
 
 // api to allow frontend to call backend functions (that use nodejs)
 const api = {
@@ -20,6 +21,9 @@ const api = {
   },
   sortContacts: () => {
     return database.sortContacts()
+  },
+  newTab: (filename) => {
+    return newTab(filename)
   }
 }
 
